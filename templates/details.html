@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Movie Recommendation</title>
+    <style>
+        *{box-sizing: border-box;}
+        img{width: 100%;}
+        .imgfile{width: 350px;}
+        .mainTit{display: flex;justify-content: space-between;align-items: center;background-color: aliceblue;
+            padding: 8px 30px;}
+        .row{margin-top: 30px;}
+        .in{margin-bottom: 20px;}
+        .col-7{padding: 80px 0 0 200px;}
+        .limg{width: 45px;margin-right: 10px;margin-left: -17px;margin-top: -5px;}
+        .logo{display: flex;}
+    </style>
+</head>
+<body>
+    <section class="main">
+        <div class="mainTit">
+            <div class="logo">
+                <div class="limg">
+                    <img src="static/img/logo.png" alt="">
+                </div>
+                <h3>Go and Visit Movie Recommendation Website</h3>
+            </div>
+            <h5>Admin</h5>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for row in data %}
+                <div class="col-5">
+                    <div class="imgfile">
+                        <img src="{{row[4]}}">
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="in">
+                        <label>Movie Name : {{row[1]}}</label>
+                    </div>
+                    <div class="in">
+                        <label>Director Name : {{row[2]}}</label>
+                    </div>
+                    <div class="in">
+                        <label>Cast : {{row[3]}}</label>
+                    </div>
+                    <div class="in">
+                        <label>Country : {{row[5]}}</label>
+                    </div>
+                    <div class="in">
+                        <label>Year : {{row[6]}}</label>
+                    </div>
+                    <div class="in">
+                        <label>Rating : {{row[7]}}</label>
+                    </div>
+                    <div class="in">
+                        <label>Duration : {{row[8]}}</label>
+                    </div>
+                    <div class="in">
+                        <label>Type : {{row[9]}}</label>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</body>
+</html>

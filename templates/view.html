@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Admin</title>
+    <style>
+        *{box-sizing: border-box;}
+        nav{background-color: aliceblue;height: 47px;}
+        ul{list-style: none;display: flex;padding: 10px 22px;}
+        a{text-decoration: none;margin-right: 20px;font-size: 18px;}
+        input{text-align: center;border: none;outline: none;}
+        button{border: 1px solid;border-radius: 3px;}
+        .main{margin-top: 20px;}
+        h4{text-align: center;margin-bottom: 20px;}
+        p{text-align: center;margin-top: 20px;}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <a href="/admin"><li>Add Movie</li></a>
+            <a href="/view"><li>View</li></a>
+            <a href="/"><li>Logout</li></a>
+        </ul>
+    </nav>   
+    <section class="main">
+        <div class="container">
+            <h4>UPLOADED MOVIE DETAILS</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Director</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr>
+                        <form action="/delete" method="post">
+                            <th scope="row"><input type="text" value="{{row[1]}}" name="title" readonly></th>
+                            <td>{{row[2]}}</td>
+                            <td><input type="text" value="{{row[6]}}" name="year" readonly></td>
+                            <td>{{row[9]}}</td>
+                            <td><button>Remove</button></td>
+                        </form>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p>{{msg}}</p>
+        </div>
+    </section> 
+</body>
+</html>
